@@ -56,12 +56,15 @@ The props available are (shown with default values):
     bgColor: '#FFFFFF', // Color of the bright squares
     fgColor: '#000000', // Color of the dark squares
     cellClassPrefix: '', // Prefix of the CSS classes, if specified, bgColor and fgColor are ignored
+    transparent: false, // Transparent SVG omitting dark sqaures 
 }
 ```
 
 The `level` prop corresponds to [Error correction level](https://en.wikipedia.org/wiki/QR_code#Error_correction) so the valid values are `L`, `M`, `Q` and `H`.
 
 You can also specify all the props that are valid for the `<svg>` React element (e.g. `style`, `className` or `width` which you can use to specify the size of the QR code).
+
+Also, you may opt-in for transparency. This option omits dark squares, saves DOM about 30-50% of it's nodes and makes the SVG single color over transparent background. Using this, `fgColor` is applied on the whole `<svg>` instead of every `<rect>`.   
 
 ## CSS styling
 

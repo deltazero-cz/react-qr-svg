@@ -10,6 +10,7 @@ export function QRCode({
     bgColor = "#FFFFFF",
     fgColor = "#000000",
     cellClassPrefix = "",
+    transparent = false,
     ...otherProps
 } = {}) {
     // adapted from https://github.com/zpao/qrcode.react/blob/master/src/index.js
@@ -31,17 +32,23 @@ export function QRCode({
         <svg
             shapeRendering="crispEdges"
             viewBox={[0, 0, cells.length, cells.length].join(" ")}
+            {...(transparent ? { fill: fgColor } : {})}
             {...otherProps}
         >
             {cells.map((row, rowIndex) =>
                 row.map((cell, colIndex) => {
+                    if (transparent && !cell) return null;
+
                     const className = cell
                         ? filledCellClassName
                         : emptyCellClassName;
                     const classNameProp = className ? { className } : null;
 
                     // Only use the fill if no cellClassPrefix was set. See https://github.com/no23reason/react-qr-svg/issues/136 for reasoning.
-                    const fill = !classNameProp && (cell ? fgColor : bgColor);
+                    const fill =
+                        !classNameProp &&
+                        !transparent &&
+                        (cell ? fgColor : bgColor);
                     const styleProp = fill ? { style: { fill } } : null;
                     return (
                         <rect
@@ -67,4 +74,5 @@ QRCode.propTypes = {
     bgColor: PropTypes.string,
     fgColor: PropTypes.string,
     cellClassPrefix: PropTypes.string,
+    transparent: PropTypes.bool,
 };

@@ -21,6 +21,10 @@ interface QRCodeProps {
      * Prefix for the cell CSS classes
      */
     cellClassPrefix?: string;
+    /**
+     * Transparent SVG
+     */
+    transparent?: boolean;
 }
 
 /**
