@@ -56,7 +56,8 @@ The props available are (shown with default values):
     bgColor: '#FFFFFF', // Color of the bright squares
     fgColor: '#000000', // Color of the dark squares
     cellClassPrefix: '', // Prefix of the CSS classes, if specified, bgColor and fgColor are ignored
-    transparent: false, // Transparent SVG omitting dark sqaures 
+    transparent: false, // Transparent SVG omitting dark sqaures
+    rectProps: {}, // Props passed to <rect> elements, like { rx: 1 } for round rectangles 
 }
 ```
 

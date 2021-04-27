@@ -25,6 +25,20 @@ interface QRCodeProps {
      * Transparent SVG
      */
     transparent?: boolean;
+    /**
+     * SVG's <rect> properties, like { rx: 1 } for round elements
+     */
+    rectProps?: {
+      /**
+       * Border radius
+       */
+      rx ?: string,
+
+      /**
+       * Other parameters...
+       */
+      [key: string]: string
+    };
 }
 
 /**

@@ -11,6 +11,7 @@ export function QRCode({
     fgColor = "#000000",
     cellClassPrefix = "",
     transparent = false,
+    rectProps = {},
     ...otherProps
 } = {}) {
     // adapted from https://github.com/zpao/qrcode.react/blob/master/src/index.js
@@ -59,6 +60,7 @@ export function QRCode({
                             width={1}
                             x={colIndex}
                             y={rowIndex}
+                            {...rectProps}
                         />
                     );
                 }),
@@ -75,4 +77,5 @@ QRCode.propTypes = {
     fgColor: PropTypes.string,
     cellClassPrefix: PropTypes.string,
     transparent: PropTypes.bool,
+    rectProps: PropTypes.object,
 };
